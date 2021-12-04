@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5432/dbname
-    username: postgres
-    password: project123
+    url: jdbc:postgresql://database-svc.default.svc.cluster.local:${DATABASE_SVC_PORT_5432_TCP_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
@@ -13,6 +13,9 @@ spring:
 
 server:
   port: 8100
+
+KAFKA_BOOSTRAPADDRESS: ${KAFKA_SERVICE_SERVICE_HOST}:${KAFKA_SERVICE_SERVICE_PORT}
+GROUPID: order
 
 eureka:
   client:

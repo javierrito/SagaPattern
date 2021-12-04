@@ -2,6 +2,7 @@ package mx.com.example.web.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import mx.com.example.commons.to.OrderTO;
 import mx.com.example.commons.to.UserTO;
 import mx.com.example.services.facade.IOrderFacade;
 import org.apache.logging.log4j.LogManager;
@@ -42,5 +43,11 @@ public class HelloController {
             produces = "application/json")
     public ResponseEntity test() {
         return new ResponseEntity<>("pong", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/orders", method = RequestMethod.POST)
+    public ResponseEntity create(@RequestBody OrderTO order) {
+        IOrderFacade.createOrder(order);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 }

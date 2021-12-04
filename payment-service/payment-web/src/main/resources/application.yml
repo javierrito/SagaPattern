@@ -17,7 +17,7 @@ server:
   port: 8300
 
 KAFKA_BOOSTRAPADDRESS: localhost:9192
-GROUPID: order
+GROUPID: payment
 
 eureka:
   client:
