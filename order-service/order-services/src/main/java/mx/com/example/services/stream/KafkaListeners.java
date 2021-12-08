@@ -18,7 +18,7 @@ public class KafkaListeners {
     @Autowired
     private  OrderFacade orderFacade;
 
-    @KafkaListener(topics = "payment_events", groupId = "order")
+   // @KafkaListener(topics = "payment_events", groupId = "order")
     public void listenGroupFoo(String message) throws JsonProcessingException {
 
         PaymentEventTO payment = new ObjectMapper().readValue(message, PaymentEventTO.class);

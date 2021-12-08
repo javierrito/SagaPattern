@@ -1,5 +1,7 @@
 package mx.com.example.services.service.impl;
 
+import mx.com.example.commons.to.PaymentEventTO;
+import mx.com.example.commons.to.TicketEventTO;
 import mx.com.example.commons.to.UserTO;
 import mx.com.example.model.UserDO;
 import mx.com.example.persistence.UserDAO;

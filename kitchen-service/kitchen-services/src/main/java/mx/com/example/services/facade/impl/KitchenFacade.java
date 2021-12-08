@@ -32,7 +32,7 @@ public class KitchenFacade implements IKitchenFacade {
     }
 
     @Override
-    public void createTicket(OrderEventTO order) {
+    public TicketEventTO createTicket(OrderEventTO order) {
 
         Date date = new Date();
 
@@ -54,8 +54,8 @@ public class KitchenFacade implements IKitchenFacade {
         }else{
             ticketEvent.setStatus(1);
         }
-
-        kafkaTemplate.send("ticket_events", ticketEvent);
+        return ticketEvent;
+       // kafkaTemplate.send("ticket_events", ticketEvent);
     }
 
     @Override

@@ -18,7 +18,7 @@ public class KafkaListeners {
     @Autowired
     private IPaymentFacade paymentFacade;
 
-    @KafkaListener(topics = "ticket_events", groupId = "payment")
+    //@KafkaListener(topics = "ticket_events", groupId = "payment")
     public void ticketEvents(String message) throws JsonProcessingException {
 
         TicketEventTO ticket = new ObjectMapper().readValue(message, TicketEventTO.class);
